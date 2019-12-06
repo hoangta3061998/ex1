@@ -4,6 +4,7 @@
     <title></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="tree.css" />
     <script language="javascript" src="libs/angular.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   </head>
@@ -29,7 +30,21 @@
             <div class="sidebar-main">
                 <div><a class="filtres">Filtres</a></div>
                 <div class="addBtn"><a>+</a></div>
-                
+                <ul class="tree">
+                  <node-tree children="tree"></node-tree>
+              </ul>
+              
+              <button ng-click="getSelected()">Get Selected</button>
+              
+              <br/>
+              <br/>
+              Selected: 
+              <ul>
+                <li ng-repeat="item in selectedItems">
+                  {{item.selected}}
+                </li>
+              </ul>
+            
             </div>
           </div>
         </div>
@@ -39,5 +54,6 @@
     <script src="app.js"></script>
     <script src="controllers/MainController.js"></script>
     <script src="services/MyService.js"></script>
+    <script src="directives/TreeDirectives.js"></script>
   </body>
 </html>
